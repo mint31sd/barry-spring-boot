@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+
+    <link rel="stylesheet" type="text/css"
+          href="http://10.87.18.66:8081/arcgis_js_api/library/3.17/3.17/esri/css/esri.css"/>
+    <script type="text/javascript" src="http://10.87.18.66:8081/arcgis_js_api/library/3.17/3.17/init.js"></script>
+
+    <script type="text/javascript"></script>
+    <style>
+        a {
+            text-decoration: none
+        }
+    </style>
+    <script>
+        var map;
+        require([
+                "esri/map",
+                "esri/geometry/Point",
+                "esri/SpatialReference",
+                "esri/symbols/SimpleMarkerSymbol",
+                "esri/symbols/SimpleLineSymbol",
+                "esri/Color",
+                "esri/symbols/PictureMarkerSymbol",
+                "esri/symbols/SimpleFillSymbol",
+                "esri/graphic",
+                "esri/geometry/Polyline",
+                "esri/geometry/Polygon",
+                "esri/layers/ArcGISTiledMapServiceLayer",
+                "esri/layers/GraphicsLayer",
+                "dojo/domReady!"
+            ],
+            function (Map, Point, SpatialReference, SimpleMarkerSymbol, SimpleLineSymbol, Color, PictureMarkerSymbol, SimpleFillSymbol, Graphic, Polyline, Polygon, ArcGISTiledMapServiceLayer, GraphicsLayer) {
+                map = new esri.Map("map", {
+                    logo: false,
+                    center: [113.72, 33.98],
+                    zoom: 1
+                });
+
+                //geometry地理对象
+                var sp = new Point([113.98, 33.15], new SpatialReference({wkid: 4326}));
+                var zz = new Point([113.65, 34.76], new SpatialReference({wkid: 4326}));
+                var ny = new Point([112.53, 33.01], new SpatialReference({wkid: 4326}));
+                //样式对象
+                var simpleMarkerSymbol = new SimpleMarkerSymbol(SimpleMarkerSymbol.STYLE_CIRCLE, 20,
+                    new SimpleLineSymbol(SimpleLineSymbol.STYLE_LONGDASHDOT,
+                        new Color([255, 0, 0]), 1),
+                    new Color([242, 245, 34]));
+                var starSymbol = new PictureMarkerSymbol("pic/stars_16px_1182266_easyicon.png", 25, 25);
+                var sunSymbol = new PictureMarkerSymbol("pic/sun_24px_1202610_easyicon.png", 25, 25);
+                //填充面的样式
+                var simpleFillSymbol = new SimpleFillSymbol(SimpleFillSymbol.STYLE_SOLID,
+                    new SimpleLineSymbol(SimpleLineSymbol.STYLE_DASHDOT,
+                        new Color([255, 0, 0]), 2), new Color([255, 255, 0, 0.25])
+                );
+                //图像
+                //点的图像对象
+                var graphic0 = new Graphic(sp, starSymbol);
+                var graphic1 = new Graphic(ny, sunSymbol);
+                var graphic2 = new Graphic(zz, simpleMarkerSymbol);
+                //线的图像对象
+                var polylineJson = {
+                    "paths": [[[113.98, 33.15], [113.65, 34.76]]],
+                    "spatialReference": {"wkid": 4326}
+                };
+                var polyline = new Polyline(polylineJson);
+                var lineSymbol = new SimpleLineSymbol({
+                    "color": [0, 0, 0, 255],
+                    "width": 1,
+                    "type": "esriSLS",
+                    "style": "esriSLSSolid"
+                });
+                var graphic3 = new Graphic(polyline, lineSymbol);
+                var json = 'json';
+                //面
+                var json = {
+                    "rings": [[[113.98, 33.15], [113.65, 34.76], [112.53, 33.01], [113.98, 33.15]]],
+                    "spatialReference": {"wkid": 4326}
+                };
+                var polygon = new Polygon(json);
+                var graphic4 = new Graphic(polygon,simpleFillSymbol);
+
+                //图层
+                var tiled = new ArcGISTiledMapServiceLayer("http://10.87.18.66:8399/arcgis/rest/services/HenanBasemap/MapServer");
+                var layer = new GraphicsLayer();
+                layer.add(graphic0);
+                layer.add(graphic1);
+                layer.add(graphic2);
+                layer.add(graphic3);
+                layer.add(graphic4);
+
+                // map.addLayer(tiled);
+                // map.addLayer(layer);
+                map.addLayers([tiled,layer]);
+                /*map.on("load", function () {
+                    map.disablePan();
+                    map.disableScrollWheelZoom();
+                    map.disableDoubleClickZoom();
+                    // map.hideZoomSlider();
+                });*/
+            }
+        );
+    </script>
+</head>
+<body>
+<div id="map"></div>
+
+//1:创建并加载一个地图 （切片服务加载） 要求 不显示logo  加载后不可拖动不可缩放
+//2:创建多个个点 显示到地图上  要求有自定义样式  图标样式
+//3：创建一个线 和面 显示到地图上
+</body>
+</html>
+

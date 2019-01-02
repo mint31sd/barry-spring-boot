@@ -39,6 +39,7 @@ public class SpringbootApplication {
         return new HttpMessageConverters(converter,stringHttpMessageConverter);
     }
 
+
     public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
