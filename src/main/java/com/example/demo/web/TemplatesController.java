@@ -26,12 +26,14 @@ public class TemplatesController {
 	 * 映射地址是：/templates/hello
 	 * @return
 	 */
+
 //	@ResponseBody
 	@RequestMapping("/hello")
 	public String hello(Map<String,Object> map){
 		//返回的是ModelAndView对象;
 //		ModelAndView mv = new ModelAndView("hello");
 //		return mv;
+		map.put("name","Anonymously0031");
 		map.put("name","Anonymously0031");
 		return "hello";
 	}
