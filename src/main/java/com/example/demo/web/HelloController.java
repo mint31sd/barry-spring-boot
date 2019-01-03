@@ -15,9 +15,9 @@ import java.util.Date;
 public class HelloController {
     @RequestMapping("/hello")
     public String index(){
-        System.out.println("进入controller1234567");
-        System.out.println("进入controller1234567");
-        return "Hello world,barry hawkins1234567!";
+        System.out.println("进入controller12345678");
+        System.out.println("进入controller12345678");
+        return "Hello world,barry hawkins12345678!";
     }
 
     /**
