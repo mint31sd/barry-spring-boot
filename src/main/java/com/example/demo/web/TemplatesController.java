@@ -34,7 +34,6 @@ public class TemplatesController {
 //		ModelAndView mv = new ModelAndView("hello");
 //		return mv;
 		map.put("name","Anonymously0031");
-		map.put("name","Anonymously0031");
 		return "hello";
 	}
 	
