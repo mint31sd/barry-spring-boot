@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+
+		<!--<link rel="stylesheet" type="text/css" href="http://localhost:8081/arcgis_js_api/library/3.17/3.17/dijit/themes/tundra/tundra.css"/>-->
+		<link rel="stylesheet" type="text/css" href="http://10.87.18.66:8081/arcgis_js_api/library/3.17/3.17/esri/css/esri.css" />
+			<script type="text/javascript" src="http://10.87.18.66:8081/arcgis_js_api/library/3.17/3.17/init.js"></script>
+
+		<script type="text/javascript"></script>
+		<style>
+			a{ text-decoration:none}
+		</style>
+		<script>
+            var map;
+            require(["esri/map"],
+                function(Map,dom){
+                    map = new esri.Map("map",{
+                        logo:false
+					});
+                    var tiled = new esri.layers.ArcGISTiledMapServiceLayer("http://10.87.18.66:8399/arcgis/rest/services/HenanBasemap/MapServer");
+                    // var tiled = new esri.layers.ArcGISTiledMapServiceLayer("https://sampleserver6.arcgisonline.com/arcgis/rest/services/USA/MapServer");
+                    // var tiled = new esri.layers.ArcGISTiledMapServiceLayer("http://server.arcgisonline.com/ArcGIS/rest/services/NGS_Topo_US_2D/MapServer");
+                    map.addLayer(tiled);
+                    map.on("load",function () {
+                        map.disablePan();
+                        map.disableScrollWheelZoom();
+                        map.disableDoubleClickZoom();
+                        // map.hideZoomSlider();
+                    });
+                }
+            );
+		</script>
+	</head>
+	<body>
+	<div id="map"></div>
+
+	<!--//1:创建并加载一个地图 （切片服务加载） 要求 不显示logo  加载后不可拖动不可缩放
+	//2:创建多个个点 显示到地图上  要求有自定义样式  图标样式
+	//3：创建一个线 和面 显示到地图上-->
+	</body>
+</html>
+
+		
