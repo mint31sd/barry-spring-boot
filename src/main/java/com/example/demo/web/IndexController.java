@@ -16,7 +16,7 @@ public class IndexController {
 
     @RequestMapping("/index")
     public String index() {
-        System.out.println("进入IndexController12345678");
+        System.err.println("进入IndexController12345678");
         return "Hello world,barry hawkins12345678!";
     }
 
