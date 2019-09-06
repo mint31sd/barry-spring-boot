@@ -1,4 +1,4 @@
-package com.example.demo.domain.pojo;
+package com.example.demo.entity;
 
 public class User {
     private Long id;

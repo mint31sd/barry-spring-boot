@@ -1,10 +1,11 @@
-package com.example.demo.domain;
+package com.example.demo.entity;
 
 import com.alibaba.fastjson.annotation.JSONField;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.util.Date;
 
-public class BarryRepository {
+public class Barry {
 
     private Integer id;
     private String name;

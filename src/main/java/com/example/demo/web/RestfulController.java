@@ -1,6 +1,6 @@
 package com.example.demo.web;
 
-import com.example.demo.domain.pojo.User;
+import com.example.demo.entity.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;

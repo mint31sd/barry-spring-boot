@@ -1,6 +1,6 @@
 package com.example.demo.web;
 
-import com.example.demo.domain.pojo.Barry;
+import com.example.demo.entity.Barry;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +22,7 @@ public class IndexController {
 
     /**
      * @param
-     * @return com.example.demo.domain.pojo.Barry
+     * @return com.example.demo.entity.Barry
      * @author wsl
      * @date 2018/6/19 21:08
      * @desc springboot使用的json解析框架是jackson
@@ -41,7 +41,7 @@ public class IndexController {
 
     /**
      * @param
-     * @return com.example.demo.domain.pojo.Barry
+     * @return com.example.demo.entity.Barry
      * @author wsl
      * @date 2018/6/19 23:18
      * @desc 使用spring-boot-devtools插件热部署的作用
