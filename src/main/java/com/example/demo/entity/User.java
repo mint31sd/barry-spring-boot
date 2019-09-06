@@ -1,6 +1,8 @@
 package com.example.demo.entity;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private Long id;
     private String name;
     private Integer age;
@@ -26,6 +28,12 @@ public class User {
     }
 
     public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public User(Long id, String name, Integer age) {
+        this.id = id;
+        this.name = name;
         this.age = age;
     }
 }

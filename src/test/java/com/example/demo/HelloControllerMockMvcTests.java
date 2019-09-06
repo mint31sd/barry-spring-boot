@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.web.HelloController;
+import com.example.demo.web.IndexController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +22,11 @@ public class HelloControllerMockMvcTests {
 	private MockMvc mvc;
 	@Before
 	public void setUp() throws Exception {
-		mvc = MockMvcBuilders.standaloneSetup(new HelloController()).build();
+		mvc = MockMvcBuilders.standaloneSetup(new IndexController()).build();
 	}
 	@Test
 	public void getHello() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/hello").accept(MediaType.APPLICATION_JSON))
+		mvc.perform(MockMvcRequestBuilders.get("/index").accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().string(equalTo("Hello world,barry hawkins123456!")));
 	}
