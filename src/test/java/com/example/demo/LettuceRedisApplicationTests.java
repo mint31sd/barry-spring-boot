@@ -18,9 +18,9 @@ import java.util.stream.IntStream;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringBootLettuceRedisApplicationTests {
+public class LettuceRedisApplicationTests {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringBootLettuceRedisApplicationTests.class);
+    private static final Logger log = LoggerFactory.getLogger(LettuceRedisApplicationTests.class);
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;

@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
     private Long id;
     private String name;
     private Integer age;
@@ -35,5 +36,10 @@ public class User implements Serializable {
         this.id = id;
         this.name = name;
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return this.id + " - " + this.name + " - " + this.age;
     }
 }
