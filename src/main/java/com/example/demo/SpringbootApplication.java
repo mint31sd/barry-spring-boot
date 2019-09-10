@@ -9,9 +9,15 @@ import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.StringHttpMessageConverter;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import java.nio.charset.Charset;
 
+@EnableAsync
+@EnableScheduling
 @SpringBootApplication
 public class SpringbootApplication {
 
@@ -43,4 +49,16 @@ public class SpringbootApplication {
     public static void main(String[] args) {
 		SpringApplication.run(SpringbootApplication.class, args);
 	}
+
+    /**
+     * 很关键：默认情况下 TaskScheduler 的 poolSize = 1
+     *
+     * @return 线程池
+     */
+    @Bean
+    public TaskScheduler taskScheduler() {
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+        taskScheduler.setPoolSize(10);
+        return taskScheduler;
+    }
 }
