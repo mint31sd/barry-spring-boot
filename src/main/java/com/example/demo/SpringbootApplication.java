@@ -15,9 +15,9 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 import java.nio.charset.Charset;
-
-@EnableAsync
-@EnableScheduling
+//开启定时任务和可以异步执行的注解
+//@EnableAsync
+//@EnableScheduling
 @SpringBootApplication
 public class SpringbootApplication {
 
