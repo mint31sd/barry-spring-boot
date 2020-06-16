@@ -1,0 +1,10 @@
+//我们将这5个路径，称之为 SpringBoot 规定的默认静态资源文件夹
+1."classpath:/META-INF/resources/"
+
+2."classpath:/resources/"
+
+3."classpath:/static/"
+
+4."classpath:/public/"
+
+5."/"：当前项目的根路径                 

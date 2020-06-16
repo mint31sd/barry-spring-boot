@@ -18,6 +18,10 @@ import java.nio.charset.Charset;
 //开启定时任务和可以异步执行的注解
 //@EnableAsync
 //@EnableScheduling
+/**
+ * 1.@SpringBootConfiguration :这个类是 Spring Boot 的主配置类
+ * 2.@EnableAutoConfiguration :开启自动配置功能,本地代码和springboot包含的组件 *
+ */
 @SpringBootApplication
 public class SpringbootApplication {
 
